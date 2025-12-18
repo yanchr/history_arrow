@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Hadean Eon",
+    "text": "The earliest eon of Earth's history, characterized by the planet's initial formation, extreme volcanic activity, and the creation of the Moon.",
+    "picture": "",
+    "magnitude": "Billions",
+    "date": 4.54
+  },
+  {
+    "title": "Archean Eon",
+    "text": "The period when Earth's crust cooled enough for continents to begin forming and the first simple, single-celled life forms appeared in the oceans.",
+    "picture": "",
+    "magnitude": "Billions",
+    "date": 4.0
+  },
+  {
+    "title": "Proterozoic Eon",
+    "text": "The longest eon, marked by the rise of oxygen in the atmosphere, the appearance of complex cells (eukaryotes), and the first multicellular organisms.",
+    "picture": "",
+    "magnitude": "Billions",
+    "date": 2.5
+  },
+  {
+    "title": "Paleozoic Era",
+    "text": "The era of 'ancient life' starting with the Cambrian explosion. It saw the rise of fish, arthropods, amphibians, and the colonization of land by plants.",
+    "picture": "",
+    "magnitude": "Billions",
+    "date": 0.541
+  },
+  {
+    "title": "Mesozoic Era",
+    "text": "Commonly known as the 'Age of Reptiles' or 'Age of Dinosaurs,' this era also saw the first appearance of mammals, birds, and flowering plants.",
+    "picture": "",
+    "magnitude": "Billions",
+    "date": 0.252
+  },
+  {
+    "title": "Cenozoic Era",
+    "text": "The 'Age of Mammals' and the current geological era. It is characterized by the diversification of mammals, birds, and the eventual rise of humans.",
+    "picture": "",
+    "magnitude": "Billions",
+    "date": 0.066
+  }
+]

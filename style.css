@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: bisque;
+    background-image: url("images/world_map_wallpaper.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 100vh; 
+    margin: 0;
+
+}
+
+#coordinate_x, #coordinate_y {
+    display: none;
+}
+
+#arrow-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 0px;
+}
+
+#input-year {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+}
+
+#magnitude-select {
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.event-marker {
+    stroke: #ff4757; /* A nice red color, or use 'white' */
+    stroke-width: 3;  /* Thickness of the line */
+    stroke-linecap: round;
+    transition: stroke 0.2s;
+    cursor: pointer;
+}
+
+.event-marker:hover {
+    stroke: #2ed573; /* Change color when hovering */
+    stroke-width: 5;
+}
+
+.info-box {
+    /* Dimensions and Centering */
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 25px;
+    /* The Glass Effect */
+    background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
+    backdrop-filter: blur(10px);          /* Blurs the background behind the box */
+    -webkit-backdrop-filter: blur(10px);   /* Safari support */
+    
+    /* Borders and Corners */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 20px;
+    
+    /* Shadow for depth */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    
+    /* Text Color */
+    color: #ffffff;
+    font-family: sans-serif;
+    text-align: center;
+
+    max-height: 400px;   
+    overflow-y: auto;
+    
+    /* Optional: Improves the look of the scrollbar on some browsers */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+#info-container{
+    display: none;
+}
+
+#info-picture {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Rounds the image corners too */
+    margin-top: 15px;
+}

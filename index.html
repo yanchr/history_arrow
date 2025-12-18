@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History_Arrow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="title-container" class="info-box">
+        <h2 id="main-title">History Arrow</h2>
+    <p id="coordinate_x">X: 0</p>
+    <p id="coordinate_y">Y: 0</p>
+    <p id="year">Years ago</p>
+    </div>
+    <input type="number"  id="input-year" placeholder="Enter a year", value="4.5">
+    <select name="magnitude" id="magnitude-select">
+        <option value="1">Years</option>
+        <option value="1e3">Thousands of Years</option>
+        <option value="1e6">Millions of Years</option>
+        <option value="1e9">Billions of Years</option>
+    </select>
+    <div id="arrow-container">
+        <svg id="interactive-arrow" viewBox="0 0 1000 100">
+            <polygon id="arrow-head" points="950,20 1000,50 950 80" />
+            <rect id="area-body" x="0" y="40" width="950" height="20" />
+        </svg>
+    </div>
+    <div class="info-box" id="info-container">
+        <h2 id="info-title">Title</h2>
+        <h3 id="info_year">Year</h3>
+        <p id="info-text">Description</p>
+        <img id="info-picture" src="" alt="Event Picture" />
+    </div>
+
+    
+    <script src="script.js"></script>
+    <script src="infor_loader.js"></script>
+</body>
+</html>
