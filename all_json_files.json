@@ -1,1 +1,10 @@
-["earth_perdiods.json", "important_humans.json"]
+[
+    "earth_perdiods.json", 
+    "important_humans.json",
+    "country_origins.json",
+    "war_periods.json",
+    "dinosaurs.json",
+    "universe.json",
+    "mammals.json",
+    "inventions.json"
+]

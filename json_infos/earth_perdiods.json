@@ -1,30 +1,34 @@
 [
   {
-    "title": "Hadean Eon",
-    "text": "The earliest eon of Earth's history, characterized by the planet's initial formation, extreme volcanic activity, and the creation of the Moon.",
-    "picture": "",
+    "title": "Hadean Eon (Earth's Formation)",
+    "text": "Earth was a hell of lava. Earth collides with a mars sized body called Theia, leading to the formation of the Moon. The moon was huge in the sky. But it started shrinking over time. Hadean is named after Hades, the Greek god of the underworld. The surface was extremely hot and volcanic activity was intense. There was the minarel zircon, the oldest known crustal fragment found on Earth, which indicates that liquid water existed on the surface as early as 4.4 billion years ago. Sun was 30% less bright than today.",
+    "picture": "earth_periods/hadean.jpg",
     "magnitude": "Billions",
+    "color": "#000000",
     "date": 4.54
   },
   {
-    "title": "Archean Eon",
-    "text": "The period when Earth's crust cooled enough for continents to begin forming and the first simple, single-celled life forms appeared in the oceans.",
-    "picture": "",
+    "title": "Eoarchean Eon",
+    "text": "Around this time we think live began on Earth, with the formation of simple single-celled organisms like bacteria and archaea. The atmosphere was likely composed of volcanic gases, with little to no oxygen. The surface was still very hot, but oceans of liquid water had formed. It probably rains for millions of years to form the oceans, which cover most of the planet.",
+    "picture": "earth_periods/archean.jpg",
     "magnitude": "Billions",
+    "color": "#827b07",
     "date": 4.0
   },
   {
-    "title": "Proterozoic Eon",
-    "text": "The longest eon, marked by the rise of oxygen in the atmosphere, the appearance of complex cells (eukaryotes), and the first multicellular organisms.",
+    "title": "Paleoarchean",
+    "text": "Most of Earth is still underwater. The first continental crust begins to form through volcanic activity and the cooling of magma. The earliest known fossils of life, such as stromatolites, date back to this period, indicating the presence of photosynthetic microorganisms.",
     "picture": "",
     "magnitude": "Billions",
-    "date": 2.5
+    "color": "#827b07",
+    "date": 3.6
   },
   {
     "title": "Paleozoic Era",
     "text": "The era of 'ancient life' starting with the Cambrian explosion. It saw the rise of fish, arthropods, amphibians, and the colonization of land by plants.",
     "picture": "",
     "magnitude": "Billions",
+    "color": "#827b07",
     "date": 0.541
   },
   {
@@ -32,6 +36,7 @@
     "text": "Commonly known as the 'Age of Reptiles' or 'Age of Dinosaurs,' this era also saw the first appearance of mammals, birds, and flowering plants.",
     "picture": "",
     "magnitude": "Billions",
+    "color": "#827b07",
     "date": 0.252
   },
   {
@@ -39,6 +44,23 @@
     "text": "The 'Age of Mammals' and the current geological era. It is characterized by the diversification of mammals, birds, and the eventual rise of humans.",
     "picture": "",
     "magnitude": "Billions",
+    "color": "#827b07",
     "date": 0.066
+  },
+  {
+    "title": "Ice Age (Quaternary Period) (6th Ice Age) start",
+    "text": "The most recent ice age, which began about 2.6 million years ago and ended approximately 11,700 years ago. It was characterized by repeated glacial cycles.",
+    "picture": "",
+    "magnitude": "Millions",
+    "color": "#00ffff",
+    "date": 2.6
+  },
+  {
+    "title": "Ice Age (Quaternary Period) (6th Ice Age) End",
+    "text": "The most recent ice age, which began about 2.6 million years ago and ended approximately 11,700 years ago. It was characterized by repeated glacial cycles.",
+    "picture": "",
+    "magnitude": "Thousands",
+    "color": "#00ffff",
+    "date": 11.7
   }
 ]

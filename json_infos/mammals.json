@@ -1,0 +1,38 @@
+[{
+    "title": "first mammals appear",
+    "text": "The first mammals appeared during the Late Triassic period, around 225 million years ago. These early mammals were small, nocturnal creatures that coexisted with dinosaurs.", 
+    "picture": "",
+    "magnitude": "Millions",
+    "color": "#827b07",
+    "date": 225 
+}, {
+    "title": "First monkeys appear",
+    "text": "The first primates, including early monkeys, appeared during the Paleocene epoch, around 65 million years ago, shortly after the extinction of the dinosaurs.",
+    "picture": "",
+    "magnitude": "Millions",
+    "color": "#827b07",
+    "date": 65
+}, {
+    "title": "First apes appear",
+    "text": "The first apes appeared during the Miocene epoch, around 23 million years ago. These early apes were the ancestors of modern apes and humans.",
+    "picture": "",
+    "magnitude": "Millions",
+    "color": "#827b07",
+    "date": 23
+},
+{
+    "title": "First hominins appear",
+    "text": "The first hominins, the group that includes modern humans and our extinct relatives, appeared around 6 to 7 million years ago in Africa.",
+    "picture": "",
+    "magnitude": "Millions",
+    "color": "#827b07",
+    "date": 7
+},
+{
+    "title": "Homo habilis appears",
+    "text": "Homo habilis, one of the earliest species in the genus Homo, appeared around 2.8 million years ago in Africa.",
+    "picture": "",
+    "magnitude": "Millions",
+    "color": "#827b07",
+    "date": 2.8
+}]        

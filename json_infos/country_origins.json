@@ -1,0 +1,18 @@
+[
+    {
+    "title": "Switzerland Origin 🇨🇭",
+    "text": "Since 1848, the Swiss Confederation has been a federal republic of relatively autonomous cantons, some of which have a history of federation that goes back more than 700 years, putting them among the world's oldest surviving republics.",
+    "picture": "",
+    "magnitude": "Years",
+    "color": "#e26512",
+    "date": 1848
+  },
+  {
+    "title": "United States Origin 🇺🇸",
+    "text": "The United States declared its independence from Great Britain on July 4, 1776, marking the birth of the nation. The Declaration of Independence, primarily authored by Thomas Jefferson, outlined the colonies' grievances against British rule and articulated the principles of individual liberty and government by consent of the governed.",
+    "picture": "",
+    "magnitude": "Years",
+    "color": "#e26512",
+    "date": 1776
+  }
+]

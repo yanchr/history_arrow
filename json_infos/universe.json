@@ -1,0 +1,29 @@
+[{
+    "title": "Universe Formation",
+    "text": "The universe is believed to have formed approximately 13.8 billion years ago with the Big Bang, a massive expansion that created space, time, and all matter and energy.",
+    "picture": "",
+    "magnitude": "Billions",
+    "color": "#000000",
+    "date": 13.8
+}, {
+    "title": "Milky Way Galaxy Formation",
+    "text": "The Milky Way galaxy, which is our home galaxy, is estimated to have formed around 13.6 billion years ago, shortly after the Big Bang.",
+    "picture": "",
+    "magnitude": "Billions",
+    "color": "#ffff00",
+    "date": 13
+}, {
+    "title": "Solar System Formation",
+    "text": "The Solar System formed about 4.6 billion years ago from the gravitational collapse of a giant molecular cloud, leading to the creation of the Sun and surrounding planets.",
+    "picture": "",
+    "magnitude": "Billions",
+    "color": "#ffff00",
+    "date": 4.6
+}, {
+    "title": "First Stars Formed",
+    "text": "The first stars in the universe are believed to have formed around 13.3 billion years ago, marking the end of the cosmic dark ages and the beginning of star formation.",
+    "picture": "",
+    "magnitude": "Billions",
+    "color": "#ffff00",
+    "date": 13.6
+}]

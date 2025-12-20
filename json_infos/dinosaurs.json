@@ -1,0 +1,49 @@
+[
+    {
+        "title": "T-Rex goes extinct",
+        "text": "The Tyrannosaurus rex, one of the most iconic dinosaurs, went extinct approximately 66 million years ago during the Cretaceous-Paleogene extinction event.",
+        "picture": "",
+        "magnitude": "Millions",
+        "color": "#827b07",
+        "date": 66
+    },
+    {
+        "title": "First Dinosaurs Appear",
+        "text": "Dinosaurs first appeared during the Triassic period, around 230 million years ago, marking the beginning of their dominance on Earth for over 160 million years.",
+        "picture": "",
+        "magnitude": "Millions",
+        "color": "#827b07",
+        "date": 230
+    },
+    {
+        "title": "Jurassic Period Begins",
+        "text": "The Jurassic period, known for the abundance and diversity of dinosaurs, began around 201 million years ago and lasted until about 145 million years ago.",
+        "picture": "",
+        "magnitude": "Millions",
+        "color": "#827b07",
+        "date": 201
+    },  
+    {
+        "title": "Cretaceous Period Begins",
+        "text": "The Cretaceous period, the last and longest segment of the Mesozoic Era, began around 145 million years ago and ended with the mass extinction event that wiped out the dinosaurs.",
+        "picture": "",
+        "magnitude": "Millions",
+        "color": "#827b07",
+        "date": 145
+    },
+    {
+        "title": "Pangaea Supercontinent Breaks Apart",
+        "text": "The supercontinent Pangaea began to break apart around 175 million years ago during the Jurassic period, leading to the formation of the continents as we know them today.",
+        "picture": "",
+        "magnitude": "Millions",
+        "color": "#827b07",
+        "date": 175
+    }, {
+        "title": "Cretaceous-Paleogene Extinction Event (Meteor Impact)",
+        "text": "A massive asteroid impact around 66 million years ago is widely believed to have caused the mass extinction event that led to the demise of the dinosaurs and many other species.",
+        "picture": "",
+        "magnitude": "Millions",
+        "color": "#aa0000",
+        "date": 66
+    }
+]

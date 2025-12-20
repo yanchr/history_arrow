@@ -1,0 +1,29 @@
+[{
+    "title": "Fire Discovery",
+    "text": "The controlled use of fire by early humans dates back to approximately 1.5 million years ago. This discovery was crucial for cooking food, providing warmth, and protection from predators.",
+    "picture": "",
+    "magnitude": "Millions",
+    "color": "#f2df15",
+    "date": 1.5
+}, {
+    "title": "Farming Begins",
+    "text": "The advent of agriculture began around 10,000 BC during the Neolithic Revolution. This shift from nomadic hunting and gathering to settled farming communities allowed for population growth and the development of civilizations.",
+    "picture": "",
+    "magnitude": "Thousands",
+    "color": "#f2df15",
+    "date": 12
+},{
+    "title": "Invention of the Wheel",
+    "text": "The wheel was invented around 3500 BC in Mesopotamia. It revolutionized transportation and machinery, facilitating trade and the movement of goods and people.",
+    "picture": "",
+    "magnitude": "Thousands",
+    "color": "#f2df15",
+    "date": 5.5
+}, {
+    "title": "Printing Press Invented",
+    "text": "The printing press was invented by Johannes Gutenberg around 1440 AD. This invention greatly contributed to the spread of knowledge, literacy, and the Renaissance.",
+    "picture": "",
+    "magnitude": "Years",
+    "color": "#f2df15",
+    "date": 1440
+}]

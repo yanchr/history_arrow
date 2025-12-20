@@ -1,0 +1,41 @@
+[{
+    "title": "World War I",
+    "text": "A global war originating in Europe that lasted from 1914 to 1918, involving many of the world's great powers.",
+    "picture": "",
+    "magnitude": "Years",
+    "color": "#bb0000",
+    "date": 1914
+  },{
+    "title": "World War II",
+    "text": "A global war that lasted from 1939 to 1945, involving most of the world's nations, including all of the great powers.",
+    "picture": "",
+    "magnitude": "Years",
+    "color": "#bb0000",
+    "date": 1939
+  },{
+    "title": "Cold War",
+    "text": "A period of geopolitical tension between the Soviet Union and the United States and their respective allies after World War II, lasting from 1947 to 1991.",
+    "picture": "",
+    "magnitude": "Years",
+    "color": "#bb0000",
+    "date": 1947
+},{
+    "title": "Napoleonic Wars",
+    "text": "A series of major conflicts pitting the French Empire, led by Napoleon Bonaparte, against various European coalitions from 1803 to 1815.",
+    "picture": "",
+    "magnitude": "Years",
+    "color": "#bb0000",
+    "date": 1803
+},{
+    "title": "Vietnam War",
+    "text": "A conflict in Vietnam, Laos, and Cambodia from 1955 to 1975, involving North Vietnam and its allies against South Vietnam and its principal ally, the United States.",
+    "picture": "",
+    "magnitude": "Years",
+    "color": "#bb0000",
+    "date": 1955},
+    {"title": "Korean War",
+    "text": "A war between North Korea and South Korea from 1950 to 1953, with major involvement from the United States and China.",
+    "picture": "",
+    "magnitude": "Years",
+    "color": "#bb0000",
+    "date": 1950}]
