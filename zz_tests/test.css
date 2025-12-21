@@ -1,0 +1,46 @@
+body {
+    background-color: bisque;
+    margin: 0;
+    display: grid;
+    /* header auto-size, main fills space, footer auto-size */
+    grid-template-rows: auto 1fr auto; 
+    min-height: 100vh; /* ensures footer stays at the bottom */
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    /* 2 rows, each sizing to the content */
+    grid-template-rows: repeat(2, auto);
+}
+header div {
+    border: 1px dashed #666;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.3); /* Slight tint to see them */
+}
+
+header, main, footer {
+    border: 2px solid #444; 
+    margin: 5px; /* Adds space between the boxes */
+}
+
+#arrow-container {
+    display: flex;
+    justify-content: center; /* centers arrow horizontally */
+    align-items: center;     /* centers arrow vertically */
+    padding: 20px;
+}
+
+svg {
+    max-width: 80%; /* keeps the arrow responsive */
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    header {
+        /* On small screens, change to 1 column */
+        grid-template-columns: 1fr; 
+        /* The 6 boxes will now automatically stack vertically */
+    }
+}

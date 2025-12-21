@@ -7,39 +7,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="title-container">
-        <h2 id="main-title"  class="info-box-small">History Arrow</h2>
-    <p id="coordinate_x">X: 0</p>
-    <p id="coordinate_y">Y: 0</p>
-    <p id="year"  class="info-box-small">Years ago</p>
-    </div>
-    <div class="info-box top-right">
-        <input type="number"  id="input-year" placeholder="Enter a year", value="4.5">
-        <select name="magnitude" id="magnitude-select">
-            <option value="1">Years</option>
-            <option value="1e3">Thousands of Years</option>
-            <option value="1e6">Millions of Years</option>
-            <option value="1e9">Billions of Years</option>
-        </select>
-        <div class="checkbox-wrapper-13">
-            <input id="viewing-style-checkbox" type="checkbox">
-            <label for="viewing-style-checkbox">Use BC/AD</label>
-        </div>
-    </div>
+    <div class="main-wrapper"> 
+        <header class="top-section">
+                <div><h2 id="main-title" class="info-box-small">History Arrow</h2></div>
 
-    <div id="arrow-container">
-        <svg id="interactive-arrow" viewBox="0 0 1000 100">
-            <polygon id="arrow-head" points="950,20 1000,50 950 80" />
-            <rect id="area-body" x="0" y="40" width="950" height="20" />
-        </svg>
-    </div>
-    <div class="info-box" id="info-container">
-        <h2 id="info-title">Title</h2>
-        <h3 id="info_year">Year</h3>
-        <p id="info-text">Description</p>
-        <img id="info-picture" src="" alt="Event Picture" />
-    </div>
 
+                <div><input type="number" id="input-year" class="info-box-small" placeholder="Enter a year" value="4.5"></div>
+
+                <div><select name="magnitude" class="info-box-small" id="magnitude-select">
+
+                    <option value="1">Years</option>
+                    <option value="1e3">Thousands</option>
+                    <option value="1e6">Millions</option>
+                    <option value="1e9">Billions</option>
+                </select>
+
+                </div>
+                <div class="checkbox-wrapper-13">
+                    <input id="viewing-style-checkbox" type="checkbox">
+                    <label for="viewing-style-checkbox" class=" info-box-small">BC/AD</label>
+                </div>
+                <div><h3 id="year" class="info-box-small">Years ago</h3></div>
+        </header>
+
+        <main>
+            <svg id="interactive-arrow" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet">
+                <polygon id="arrow-head" points="950,20 1000,60 950 100" />
+                <rect id="area-body" x="0" y="40" width="950" height="40" />
+            </svg>
+        </main>
+       
+
+        <footer id="info-container" class="info-box hidden">
+            <h2 id="info-title">Title</h2>
+            <h3 id="info_year">Year</h3>
+            <p id="info-text">Description</p>
+            <img id="info-picture" src="" alt="Event Picture" />
+        </footer>
+    </div>
+   
     
     <script src="script.js"></script>
     <script src="infor_loader.js"></script>

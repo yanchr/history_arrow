@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const eventsContainer = document.getElementById('events');
-    const infoBox = document.getElementById('info-box');
     const svg = document.getElementById('interactive-arrow');
     const actual_currentYear = new Date().getFullYear();
 
@@ -10,11 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const infoYear = document.getElementById('info_year');
     const infoText = document.getElementById('info-text');
     const infoPicture = document.getElementById('info-picture');
-    magnitude = 1e3;
-    first_year = 2024;
+    magnitude = 1;
+    first_year = 2500;
     current_year = 0;
 
-    function get_json_data(file_path) {
+
+    async function get_json_data(file_path) {
         return fetch(file_path)
             .then(response => {
                 if (!response.ok) {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return allData;
     }   
     json_data = loadAllEvents();
-
+    add_event_divs();
     function add_event_divs() {
         json_data.then(dataArrays => {
             const allEvents = dataArrays.flat();
@@ -55,9 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const eventLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
                 eventLine.setAttribute("id", formattedId);
                 eventLine.setAttribute("x1", x_pos);
-                eventLine.setAttribute("y1", "35");
+                eventLine.setAttribute("y1", "42");
                 eventLine.setAttribute("x2", x_pos);
-                eventLine.setAttribute("y2", "65");
+                eventLine.setAttribute("y2", "78");
+                eventLine.setAttribute("stroke-width", "2");
                 eventLine.style.stroke = event.color || "#FF0000";
                 eventLine.classList.add('event-marker');
 
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
                 eventLine.addEventListener('mouseover', () => {
-                    infoContainer.style.display = 'block';
+                    infoContainer.classList.remove('hidden');
                     showEventDetails(event);
             });
                 svg.appendChild(eventLine);
@@ -75,6 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
    
+    document.addEventListener('click', (e) => {
+        if (!infoContainer.contains(e.target)) {
+            hideEventDetails();
+        }
+    });
+
 
     window.addEventListener('yearChanged', (e) => {
         current_year = e.detail.current_year;
@@ -104,6 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (text === "Millions") return 1e6;
         if (text === "Thousands") return 1e3;
         return 1;
+    }
+
+    function hideEventDetails() {
+    infoContainer.classList.add('hidden');
     }
 
     function showEventDetails(event) {

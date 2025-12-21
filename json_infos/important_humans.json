@@ -3,33 +3,33 @@
   "text": "Formulated the laws of motion and universal gravitation, laying the foundation for classical mechanics.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 1643
 }, {
   "title": "Albert Einstein",
   "text": "Developed the theory of relativity and made significant contributions to quantum mechanics.",
-  "picture": "albert_einstein.jpg",
+  "picture": "humans/albert_einstein.jpg",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 1879
 }, {
   "title": "Charles Darwin",
   "text": "Proposed the theory of evolution through natural selection, fundamentally changing our understanding of biology.",
-  "picture": "charles_darwin.jpg",
+  "picture": "humans/charles_darwin.jpg",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 1809
 }, {
   "title": "Galileo Galilei",
   "text": "Made significant contributions to astronomy and physics, including improvements to the telescope and early astronomical observations.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 1564
 },{
   "title": "Jesus Christ",
   "text": "Central figure of Christianity, believed to be the Son of God and savior of humanity.",
-  "picture": "",
+  "picture": "humans/jesus_christ.jpg",
   "magnitude": "Years",
   "color": "#000000",
   "date": -6
@@ -39,69 +39,69 @@
   "text": "Founder of Islam and regarded as the last prophet in Islamic tradition.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 570
 }, {
   "title": "Leonardo da Vinci",
   "text": "Renowned polymath of the Renaissance, known for his contributions to art, science, and engineering.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 1452
 }, {
   "title": "Marie Curie",
   "text": "Pioneered research on radioactivity, becoming the first woman to win a Nobel Prize and the only person to win Nobel Prizes in two different scientific fields.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 1867
 }, {
   "title": "Julius Caesar",
   "text": "Roman general and statesman who played a critical role in the events that  led to the demise of the Roman Republic and the rise of the Roman Empire.",
   "picture": "",
   "magnitude": "Years" ,
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": -100
 }, {
   "title": "Kleopatra VII",
   "text": "The last active ruler of the Ptolemaic Kingdom of Egypt, known for her intelligence, political acumen, and relationships with Roman leaders Julius Caesar and Mark Antony.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": -69
 }, {
   "title": "Alexander the Great",
   "text": "King of Macedonia who created one of the largest empires in ancient history, spreading Greek culture throughout the known world.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": -356
 }, {
   "title": "Socrates",
   "text": "Classical Greek philosopher credited as one of the founders of Western philosophy, known for his contributions to ethics and epistemology.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": -470
 }, {
   "title": "Christopher Columbus",
   "text": "Italian explorer who completed four voyages across the Atlantic Ocean, opening the way for the widespread European exploration and colonization of the Americas.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 1451
 }, {
   "title": "Genghis Khan",
   "text": "Founder and first Great Khan of the Mongol Empire, which became the largest contiguous empire in history after his death.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 1162
 }, {
   "title": "Marthin Luther",
   "text": "German professor of theology, composer, priest, monk, and a seminal figure in the Protestant Reformation.",
   "picture": "",
   "magnitude": "Years",
-  "color": "#827b07",
+  "color": "#3a2a6d",
   "date": 1483
 }]

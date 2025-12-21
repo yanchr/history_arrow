@@ -9,8 +9,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 	const svg = document.getElementById('interactive-arrow');
-	const coordX = document.querySelector('#coordinate_x');
-	const coordY = document.querySelector('#coordinate_y');
 	const yearP = document.querySelector('#year');
 	const inputYear = document.getElementById('input-year');
 	const magnitudeSelect = document.getElementById('magnitude-select');
@@ -19,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	var magnitudeValue = parseFloat(magnitudeSelect.value);
 	const actual_currentYear = new Date().getFullYear();
 	var isAbsolute = viewing_style_checkbox.checked;
-	var current_year = 1500;
+	var current_year = 0;
 	var years_ago = 0;
 	var years_ago_txt = "";
 
-	if (!svg || !coordX || !coordY) return;
+	if (!svg) return;
 
 	function updateCoords(evt) {
 		// Use an SVGPoint (DOMPoint) and transform it by the inverse of the SVG's CTM
@@ -36,9 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const svgP = pt.matrixTransform(ctm.inverse());
 
-		// Round values for display but keep actual values if needed
-		coordX.textContent = `X: ${Math.round(svgP.x)}`;
-		coordY.textContent = `Y: ${Math.round(svgP.y)}`;
 		current_year = convert_x_to_years(svgP.x, yearValue * magnitudeValue, isAbsolute);
 		years_ago = Math.round(current_year / magnitudeValue * 10) / 10
 		years_ago_txt = `${years_ago} ${convert_magnitue_to_text(magnitudeValue)} Years ago`;

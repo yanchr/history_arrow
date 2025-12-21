@@ -1,32 +1,82 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
     background-color: bisque;
     background-image: url("images/world_map_wallpaper.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 100vh; 
-    margin: 0;
+}
 
+header, main, footer {
+    /* border: 2px solid #444;  */
+    margin: 0px; /* Adds space between the boxes */
 }
 
 
-.converter-container {
+.main-wrapper {
+    display: grid;
+    grid-template-areas: "stack"; /* All elements share one area */
+    grid-template-rows: auto auto 1fr;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    /* overflow: hidden; Prevents scrollbars from shifting layout */
+    overflow-y: auto;
+}
+
+/* Row 1: Top Aligned */
+header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(2, auto);
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: start; /* Locks to top */
+    z-index: 10;
+    place-content: center;
+    /* 2 rows, each sizing to the content */
+}
+
+@media (max-width: 600px) {
+    header {
+        /* On small screens, change to 1 column */
+        grid-template-columns: 1fr; 
+        /* The 6 boxes will now automatically stack vertically */
+    }
+}
+
+header div {
+    height: 100px; /* added height to make centering visible */
+    
+    /* Center the content */
     display: flex;
-    align-items: center;
-    gap: 10px;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
 }
 
-#coordinate_x, #coordinate_y {
-    display: none;
+/* Row 2: Perfectly Centered Arrow */
+main {
+    display: flex;
+    pointer-events: none; /* Allows clicks to pass through container if needed */
 }
 
-#arrow-container {
-    width: 80%;
+
+#interactive-arrow {
+    pointer-events: all; /* Re-enables interaction for the arrow itself */
+    width: 100%;
+    max-height: 150px;
+}
+
+#info-container {
     margin: 0 auto;
-    margin-top: 0px;
+    width: 100%;
+    transition: opacity 1s ease, transform 1s ease;
+    max-height: 50vh;
+    /* This can now grow or shrink without pushing the arrow! */
 }
 
 #area-body, #arrow-head {
@@ -35,22 +85,16 @@ body {
     
     /* Use stroke instead of border */
     stroke: rgba(255, 255, 255, 0.2);
-    stroke-width: 1;
-
-    /* Apply the SVG filter for the shadow effect */
-    filter: url(#shadow);
+    stroke-width: 2;
 }
 
 #input-year {
-    margin-top: 20px;
     padding: 10px;
     font-size: 16px;
     width: 200px;
 }
 
 #magnitude-select {
-    margin-left: 10px;
-    padding: 10px;
     font-size: 16px;
 }
 
@@ -69,7 +113,7 @@ body {
 
 .info-box {
     /* Dimensions and Centering */
-    max-width: 500px;
+    max-width: 60vw;
     margin: 20px auto;
     padding: 25px;
     /* The Glass Effect */
@@ -100,7 +144,6 @@ body {
 .info-box-small {
     /* Dimensions and Centering */
     max-width: 200px;
-    margin: 20px auto;
     padding: 15px;
     /* The Glass Effect */
     background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
@@ -120,9 +163,20 @@ body {
     text-align: center;
 }
 
-#info-container{
-    display: none;
+.info-box, .info-box-small {
+    margin: 0; /* Let the grid gap handle spacing */
+    width: 100%; 
+    box-sizing: border-box;
 }
+
+
+
+#info-container.hidden {
+    opacity: 0;
+    transform: translateY(30px); /* Slides down slightly when disappearing */
+    pointer-events: none; /* Prevents clicking an invisible box */
+}
+
 
 
 
