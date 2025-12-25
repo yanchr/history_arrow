@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History_Arrow</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="frontend/style.css">
 </head>
 <body>
     <div class="main-wrapper"> 
@@ -15,7 +15,6 @@
                 <div><input type="number" id="input-year" class="info-box-small" placeholder="Enter a year" value="4.5"></div>
 
                 <div><select name="magnitude" class="info-box-small" id="magnitude-select">
-
                     <option value="1">Years</option>
                     <option value="1e3">Thousands</option>
                     <option value="1e6">Millions</option>
@@ -28,6 +27,8 @@
                     <label for="viewing-style-checkbox" class=" info-box-small">BC/AD</label>
                 </div>
                 <div><h3 id="year" class="info-box-small">Years ago</h3></div>
+                <div><input type="text" id="api_request_input" placeholder="Enter an Event" class="info-box-small"></div>
+                <div><p id="ai-output" class="info-box-small"></p></div>
         </header>
 
         <main>
@@ -46,8 +47,8 @@
         </footer>
     </div>
    
-    
-    <script src="script.js"></script>
-    <script src="infor_loader.js"></script>
+    <script src="frontend/script.js"></script>
+    <script src="frontend/infor_loader.js"></script>
+    <script src="frontend/gemini_frontend.js"></script>
 </body>
 </html>
