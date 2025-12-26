@@ -26,5 +26,33 @@
         "magnitude": "Years",
         "color": "#ff0000",
         "date": 1770
+    },
+    {
+        "title": "Invention of light bulb",
+        "text": "While many contributed, Thomas Edison's 1879 patent for a practical, long-lasting incandescent light bulb revolutionized homes and cities, ushering in a new era of illumination.",
+        "magnitude": "years",
+        "color": "#ff0000",
+        "date": 144
+    },
+    {
+        "title": "Queen elizabeth born",
+        "text": "Queen Elizabeth I of England was born in 1533, a monarch who reigned for over four decades and became one of England's most iconic rulers.",
+        "magnitude": "Years",
+        "color": "#ff0000",
+        "date": 429
+    },
+    {
+        "title": "Muhammad Ali",
+        "text": "A towering figure of the 20th century, Muhammad Ali transcended boxing to become a global icon of sports, activism, and individuality, known for his dazzling speed, knockout power, and unwavering principles.",
+        "magnitude": "Years",
+        "color": "#ff0000",
+        "date": 1964
+    },
+    {
+        "title": "Afganistan war Sojvetunion",
+        "text": "The Soviet-Afghan War, from 1979 to 1989, was a protracted conflict involving the Soviet Union and Afghan mujahideen forces supported by various countries. It led to immense destruction and loss of life in Afghanistan.",
+        "magnitude": "Years",
+        "color": "#ff0000",
+        "date": 1982
     }
 ]
