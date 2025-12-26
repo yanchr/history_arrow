@@ -13,6 +13,8 @@ const ai = new GoogleGenAI({});
 
 
 // This creates a "POST" endpoint at http://localhost:3000/ask
+
+// Use it inside your app.post
 app.post('/ask', async (req, res) => {
     const userPrompt =
                         `Write a short description of ${req.body.prompt}\n\n` +
@@ -30,14 +32,20 @@ app.post('/ask', async (req, res) => {
                         "- years_ago must be a number (decimals allowed).\n" +
                         "- magnitude must match the scale of years_ago."
     try {
-        // const userPrompt =  req.body.prompt; // Get the text from the frontend
-        
-        const result = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
-            contents: userPrompt,
-        });
-
-        res.json(parseResponse(result.text)); // Send the AI's answer back to the browser
+        const duplicateExists = await isTitleDuplicate(req.body.prompt)
+        if(!duplicateExists) {
+            // const userPrompt =  req.body.prompt; // Get the text from the frontend
+            const result = await ai.models.generateContent({
+                model: "gemini-2.5-flash-lite",
+                contents: userPrompt,
+            });
+    
+            const modelUsed = req.body.model === "gemini-2.5-flash-lite" ? "flash_lite" : "flash";
+            const counts = await logUsage(modelUsed);
+    
+            res.json(parseResponse(result.text, counts)); // Send the AI's answer back to the browser
+        }
+        return "Duplicate Exists"
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Something went wrong" });
@@ -45,9 +53,11 @@ app.post('/ask', async (req, res) => {
 });
 
 
-app.post('/ask-text', (req, res) => {
+app.post('/ask-text', async (req, res) => {
     const string = "magnitude=Years\nyears_ago=255\ntext=Born in Ajaccio, Corsica, Napoleon Bonaparte entered the world on August 15, 1769, just a year after the island was ceded to France by Genoa.";
-    res.json(parseResponse(string));
+    const counts = await logUsage("flash_lite");
+    // const counts = {"flash": "5", "flash_lite": "9"}
+    res.json(parseResponse(string, counts));
 });
 
 app.post('/ask-text-2', (req, res) => {
@@ -60,7 +70,7 @@ app.post('/ask-text-3', (req, res) => {
     res.json(parseResponse(string));
 });
 
-function parseResponse(responseText) {
+function parseResponse(responseText, currentCount) {
     const lines = responseText.split("\n");
     let magnitude = null;
     let years_ago = null;   
@@ -76,44 +86,79 @@ function parseResponse(responseText) {
         }
     }
 
-    return { magnitude, years_ago, text };
+    return { magnitude, years_ago, text, currentCount };
 }
 
 
+// Add this simple counter function
+async function logUsage(modelType) {
+    const logPath = './data/usage_log.json';
+    const today = new Date().toISOString().split('T')[0]; // Gets YYYY-MM-DD
 
-
-
-// This function checks all JSON files in the folder for a matching title
-async function saveEventToFile(newEvent) {
-    const folderPath = './frontend/json_infos';
-    const targetFile = path.join(folderPath, 'gemini_requests.json');
-
+    let data = {};
     try {
-        // 1. Get all files in the directory
+        data = JSON.parse(await fs.readFile(logPath, 'utf-8'));
+    } catch (e) { data = {}; }
+
+    // Increment today's count
+    if (!data[today]) {
+        data[today] = { "flash": 0, "flash_lite": 0 };
+    }
+
+    data[today][modelType] = (data[today][modelType] || 0) + 1;
+
+    await fs.writeFile(logPath, JSON.stringify(data, null, 2));
+    return data[today];
+}
+
+/**
+ * 1. Checks all JSON files in the folder for a matching title.
+ * @returns {Promise<boolean>} - Returns true if a duplicate is found, false otherwise.
+ */
+async function isTitleDuplicate(title, folderPath = './data/json_infos') {
+    try {
         const files = await fs.readdir(folderPath);
         const jsonFiles = files.filter(file => file.endsWith('.json'));
 
-        // 2. Loop through every file to check for duplicate titles
         for (const file of jsonFiles) {
             const filePath = path.join(folderPath, file);
-            const data = JSON.parse(await fs.readFile(filePath, 'utf-8'));
+            const content = await fs.readFile(filePath, 'utf-8');
+            const data = JSON.parse(content);
 
-            // Check if any object in the array has the same title
-            const isDuplicate = data.some(event => event.title.toLowerCase() === newEvent.title.toLowerCase());
-            
-            if (isDuplicate) {
-                return { success: false, message: "Duplicate title found in " + file };
+            // Ensure data is an array before calling .some
+            if (Array.isArray(data)) {
+                const duplicate = data.some(
+                    event => event.title?.toLowerCase() === title.toLowerCase()
+                );
+                if (duplicate) return true;
             }
         }
+        return false; // No duplicate found in any file
+    } catch (error) {
+        console.error("Error checking duplicates:", error);
+        return false; 
+    }
+}
 
-        // 3. If no duplicate, add to gemini_requests.json
+async function saveEventToFile(newEvent) {
+    const folderPath = './data/json_infos';
+    const targetFile = path.join(folderPath, 'gemini_requests.json');
+
+    try {
+        // Use the first function
+        const duplicateExists = await isTitleDuplicate(newEvent.title, folderPath);
+
+        if (duplicateExists) {
+            return { success: false, message: "Duplicate title found in existing records." };
+        }
+
+        // Logic to append to the target file
         let targetData = [];
         try {
             const currentContent = await fs.readFile(targetFile, 'utf-8');
             targetData = JSON.parse(currentContent);
         } catch (e) {
-            // File might not exist yet, start with empty array
-            targetData = [];
+            // If file doesn't exist, we keep targetData as []
         }
 
         targetData.push(newEvent);
@@ -122,8 +167,8 @@ async function saveEventToFile(newEvent) {
         return { success: true };
 
     } catch (error) {
-        console.error("File System Error:", error);
-        throw error;
+        console.error("Save Error:", error);
+        return { success: false, error: error.message };
     }
 }
 

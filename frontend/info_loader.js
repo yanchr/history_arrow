@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadAllEvents() {
         const response = await fetch('frontend/all_json_files.json');
         const fileNames = await response.json();
-        const jsonFiles = fileNames.map(file => `frontend/json_infos/${file}`);
+        const jsonFiles = fileNames.map(file => `data/json_infos/${file}`);
         const allDataPromises = jsonFiles.map(filePath => get_json_data(filePath));
         const allData = await Promise.all(allDataPromises);
         return allData;
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 eventLine.classList.add('event-marker');
 
                 const titleTag = document.createElementNS("http://www.w3.org/2000/svg", "title");
-                titleTag.textContent = `${event.title} (${years_ago} ${magnitude_txt} years ago)`;
+                titleTag.textContent = `${event.title} (${Math.round(years_ago * 100) / 100} ${magnitude_txt} years ago)`;
                 eventLine.appendChild(titleTag);
 
 
@@ -88,10 +88,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     window.addEventListener('magnitudeChanged', (e) => {
         isAbsolute = e.detail.isAbsolute;
+        console.log(isAbsolute)
+        console.log("Current year before", e.detail.first_year)
         first_year = (isAbsolute) ? actual_currentYear - e.detail.first_year : e.detail.first_year;
+        console.log("Current year after", first_year)
         magnitude = e.detail.magnitude;
         add_event_divs();
         // Update any necessary calculations based on new magnitude or first year
+    });
+
+    window.addEventListener('reload', (e) => {
+        json_data = loadAllEvents();
+        add_event_divs();
     });
     function convert_years_to_x(years, first_date) {
         const x_cord = (years / first_date) * 1000;

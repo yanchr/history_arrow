@@ -1,4 +1,4 @@
-const input_link = "ask-text"
+const input_link = "ask"
 const input = document.getElementById("api_request_input");
 const output = document.getElementById("ai-output");
 const yearP = document.querySelector('#year');
@@ -11,8 +11,10 @@ const infoYear = document.getElementById('info_year');
 const infoText = document.getElementById('info-text');
 const actual_currentYear = new Date().getFullYear();
 const svg = document.getElementById('interactive-arrow');
+const requestCounterP = document.getElementById('request-counter-p');
 let magnitude = null;
 let years_ago = null;
+
 let text = null;
 
 input.addEventListener("keyup", async (event) => {
@@ -24,7 +26,6 @@ input.addEventListener("keyup", async (event) => {
         //     detail: { first_year: 1700, magnitude: 1, isAbsolute: true }
         // });
         // window.dispatchEvent(event);
-        event.preventDefault();
         const myEvent = {
             title: input.value,
             date: 0,
@@ -65,7 +66,6 @@ async function callGemini() {
             body: JSON.stringify({ prompt: userInput }) // Send the prompt to Node
         });
         const data = await response.json();
-        console.log(data)
         
         // Example: Put the answer on the screen
         output.innerText = `Done`;
@@ -75,10 +75,17 @@ async function callGemini() {
             text: data.text,
             magnitude: data.magnitude,
             color: "#ff0000",
-            date: isAbsolute ? actual_currentYear - data.years_ago*2: data.years_ago*2
+            date: isAbsolute ? actual_currentYear - data.years_ago: data.years_ago
         };
-        changeHeader(myEvent)
+
+        requestCounterP.innerHTML = `
+            Flash: ${data.currentCount.flash} / 20 <br> <br>
+            Lite: ${data.currentCount.flash_lite} / 20
+        `;
+
         requestSaveEvent(myEvent)
+        changeHeader(myEvent)
+
         
     } catch (error) {
         console.error("Failed to connect to the server:", error);
@@ -99,15 +106,17 @@ function showEventDetails(event) {
 }
 
 function changeHeader(event) {
-    inputYear.value = event.date;
     magnitudeSelect.value = convert_text_to_magnitude(event.magnitude);
     viewing_style_checkbox.checked = event.magnitude == "Years";
-    console.log(event.magnitude)
-    console.log(convert_text_to_magnitude(event.magnitude))
+    let first_year = viewing_style_checkbox.checked? actual_currentYear - (actual_currentYear - event.date) * 2: event.date * 2
+    inputYear.value = first_year
     const customEvent = new CustomEvent('magnitudeChanged', {
-        detail: { first_year: event.date, magnitude: Number(convert_text_to_magnitude(event.magnitude)), isAbsolute: viewing_style_checkbox.checked }
+        detail: { first_year: first_year, magnitude: Number(convert_text_to_magnitude(event.magnitude)), isAbsolute: viewing_style_checkbox.checked }
     });
     window.dispatchEvent(customEvent);
+
+    const secondEvent = new CustomEvent('reload')
+    window.dispatchEvent(secondEvent)
     showEventDetails(event)
 }
 
@@ -128,7 +137,7 @@ function add_event_line() {
     eventLine.setAttribute("x2", "500");
     eventLine.setAttribute("y2", `${start + length}`);
     eventLine.setAttribute("stroke-width", "5");
-    eventLine.style.stroke = "#FF0000";
+    eventLine.style.stroke = "#0000aa";
     eventLine.classList.add('event-marker');
     eventLine.style.strokeDasharray = length;
     eventLine.style.strokeDashoffset = length / 2;
@@ -145,15 +154,15 @@ async function requestSaveEvent(eventObject) {
             body: JSON.stringify(eventObject)
         });
 
-        console.log("test")
-
         if (response.status === 409) {
             const data = await response.json();
-            alert(`Stop! This event already exists: ${data.message}`);
+            output.innerText = "Event alerady exists"
+            // alert(`Stop! This event already exists: ${data.message}`);
         } else if (response.ok) {
             console.log("Event saved successfully!");
         }
     } catch (error) {
+        output.innerText = error
         console.error("Save failed:", error);
     }
 }

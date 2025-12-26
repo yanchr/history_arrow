@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const inputYear = document.getElementById('input-year');
 	const magnitudeSelect = document.getElementById('magnitude-select');
 	const viewing_style_checkbox = document.getElementById('viewing-style-checkbox');
+	const requestCounterP = document.getElementById('request-counter-p');
 	var yearValue = parseFloat(inputYear.value);
 	var magnitudeValue = parseFloat(magnitudeSelect.value);
 	const actual_currentYear = new Date().getFullYear();
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	var years_ago_txt = "";
 
 	if (!svg) return;
+	see_usage_logs()
 
 	function updateCoords(evt) {
 		// Use an SVGPoint (DOMPoint) and transform it by the inverse of the SVG's CTM
@@ -88,8 +90,46 @@ document.addEventListener('DOMContentLoaded', () => {
 		window.dispatchEvent(event);
 	});
 
+	async function get_json_data(file_path) {
+        return fetch(file_path)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.error(`Could not fetch JSON from ${file_path}:`, error);
+            });
+    }
+
+	async function see_usage_logs() {
+    // 1. Await the data from the JSON file
+    const allLogs = await get_json_data("./data/usage_log.json");
+    if (!allLogs) return;
+    const today = new Date().toISOString().split('T')[0];
+    const todaysData = allLogs[today];
+    if (todaysData) {
+        const flashCount = todaysData.flash || 0;
+        const flashLiteCount = todaysData.flash_lite || 0; // or 'flash-lite' based on your key
+
+        console.log(`Today (${today}):`);
+        console.log(`Flash: ${flashCount}`);
+        console.log(`Flash Lite: ${flashLiteCount}`);
+
+		requestCounterP.innerHTML = `
+            Flash: ${flashCount} / 20 <br> <br>
+            Lite: ${flashLiteCount} / 20
+        `;
+
+    } else {
+        console.log("No usage logs found for today yet.");
+        requestCounterP.innerHTML = "Flash: 0 <br> <br> Lite: 0";
+    }
+}
 
 	viewing_style_checkbox.addEventListener('change', function() {
+		
         if (this.checked) {
 			isAbsolute = true;
         } else {

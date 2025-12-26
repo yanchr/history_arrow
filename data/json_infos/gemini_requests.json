@@ -1,0 +1,30 @@
+[
+    {
+        "title": "First man on Moon",
+        "text": "Astronaut Neil Armstrong became the first human to walk on the lunar surface during NASA's Apollo 11 mission.",
+        "magnitude": "Years",
+        "color": "#ff0000",
+        "date": 1970
+    },
+    {
+        "title": "Internet invented",
+        "text": "A global system of interconnected computer networks, initially developed by ARPA for military and academic research, enabling data exchange.",
+        "magnitude": "Years",
+        "color": "#ff0000",
+        "date": 1970
+    },
+    {
+        "title": "Columbus finding America",
+        "text": "In 1492, Christopher Columbus's expedition made landfall in the Caribbean, marking the beginning of sustained European contact with the Americas.",
+        "magnitude": "Years",
+        "color": "#ff0000",
+        "date": 1493
+    },
+    {
+        "title": "Inside",
+        "text": "Born in Ajaccio, Corsica, Napoleon Bonaparte entered the world on August 15, 1769, just a year after the island was ceded to France by Genoa.",
+        "magnitude": "Years",
+        "color": "#ff0000",
+        "date": 1770
+    }
+]
